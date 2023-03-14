@@ -2,7 +2,7 @@ import pygame, random
 from pygame.locals import *
 
 SCREEN_WIDTH = 400
-SCREEN_HEIGHT = 600
+SCREEN_HEIGHT = 800
 SPEED = 10
 GRAVITY = 1
 GAME_SPEED = 10
@@ -72,7 +72,7 @@ class Pipe(pygame.sprite.Sprite):
     def __init__(self, inverted, xpos, ysize):
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = pygame.image.load('pipe_red.png').convert_alpha()
+        self.image = pygame.image.load('pipe-red.png').convert_alpha()
         self.image = pygame.transform.scale(self.image, (PIPE_WIDTH, PIPE_HEIGHT))
 
         self.rect = self.image.get_rect()
@@ -95,7 +95,7 @@ def is_off_screen(sprite):
 
 
 def get_random_pipes(xpos):
-    size = random.randint()
+    size = random.randint(100, 300)
     pipe = Pipe(False, xpos, size)
     pipe_inverted = Pipe(True, xpos, SCREEN_HEIGHT - size - PIPE_GAP)
     return (pipe, pipe_inverted)
